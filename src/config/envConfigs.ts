@@ -11,6 +11,7 @@ const CONFIGS = {
   ],
   JINA_API_KEY: process.env.JINA_API_KEY || "",
   JINA_API_URL: process.env.JINA_API_URL || "",
+  JINA_API_MODEL: process.env.JINA_API_MODEL || "",
   QDRANT_API_KEY: process.env.QDRANT_API_KEY || "",
   QDRANT_API_URL: process.env.QDRANT_API_URL || "",
   QDRANT_DB_CLUSTER: process.env.QDRANT_DB_CLUSTER || "",

@@ -5,3 +5,9 @@ export type NewsItem = {
   pubDate: string;
   guid: string;
 };
+
+export type QdrantInsertPayload = {
+  id: number | string;
+  vector: number[];
+  payload: { title: string; description: string; url: string };
+};
