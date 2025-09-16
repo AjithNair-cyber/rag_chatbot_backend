@@ -3,10 +3,10 @@ import * as cheerio from "cheerio";
 import * as fs from "fs";
 import { NewsItem } from "../types/rss.types";
 import CONFIGS from "../config/envConfigs";
-import { embedAndInsertArticles } from "./vectorService";
+import vectorService from "./vectorService";
 
 // Function to fetch RSS feeds, parse, embed, and save to news.json for local storage
-export async function fetchAndSaveRSS(): Promise<void> {
+const fetchAndSaveRSS = async (): Promise<void> => {
   try {
     // Read existing news.json if exists
     let existingItems: NewsItem[] = [];
@@ -55,7 +55,7 @@ export async function fetchAndSaveRSS(): Promise<void> {
 
     // Embed and insert only the new articles to Qdrant
     if (newItems.length > 0) {
-      await embedAndInsertArticles(newItems);
+      await vectorService.embedAndInsertArticles(newItems);
     }
 
     // Save combined items back to news.json
@@ -70,4 +70,6 @@ export async function fetchAndSaveRSS(): Promise<void> {
       console.error("Unknown error fetching or saving RSS feed");
     }
   }
-}
+};
+
+export default { fetchAndSaveRSS };

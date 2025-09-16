@@ -9,5 +9,15 @@ export type NewsItem = {
 export type QdrantInsertPayload = {
   id: number | string;
   vector: number[];
-  payload: { title: string; description: string; url: string };
+  payload: { title: string; description: string; link: string };
+};
+
+type Source = {
+  title: string;
+  url: string;
+};
+
+export type QueryResult = {
+  answer: string;
+  sources: Source[];
 };

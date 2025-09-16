@@ -1,10 +1,10 @@
 import { NewsItem } from "../types/rss.types";
-import { getJinaEmbeddings } from "../functions/jinaFunctions";
-import { upsertVectors } from "../functions/qdrantFunctions";
 import { v4 as uuidv4 } from "uuid";
+import jinaFunctions from "../functions/jinaFunctions";
+import qdrantFunctions from "../functions/qdrantFunctions";
 
 // Function to embed articles and insert into Qdrant
-export async function embedAndInsertArticles(articles: NewsItem[]) {
+const embedAndInsertArticles = async (articles: NewsItem[]) => {
   // Embed each article (title + description) and prepare payload for Qdrant
   const texts = articles.map((a) => `${a.title} ${a.description}`);
 
@@ -13,7 +13,7 @@ export async function embedAndInsertArticles(articles: NewsItem[]) {
 
   // Get embeddings for each text and store in embeddings array
   for (const text of texts) {
-    const embedding = await getJinaEmbeddings(text);
+    const embedding = await jinaFunctions.getJinaEmbeddings(text);
     embeddings.push(embedding);
   }
 
@@ -24,10 +24,12 @@ export async function embedAndInsertArticles(articles: NewsItem[]) {
     payload: {
       title: article.title,
       description: article.description,
-      url: article.link,
+      link: article.link,
     },
   }));
 
   // Batch upsert all points at once
-  await upsertVectors(points);
-}
+  await qdrantFunctions.upsertVectors(points);
+};
+
+export default { embedAndInsertArticles };

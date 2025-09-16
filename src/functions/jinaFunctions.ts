@@ -2,7 +2,7 @@ import axios from "axios";
 import CONFIGS from "../config/envConfigs";
 
 // FUNCTION TO GET EMBEDDINGS FROM JINA
-export async function getJinaEmbeddings(texts: string): Promise<number[]> {
+const getJinaEmbeddings = async (texts: string): Promise<number[]> => {
   try {
     // Call Jina API to get embeddings
     const response = await axios.post(
@@ -16,4 +16,6 @@ export async function getJinaEmbeddings(texts: string): Promise<number[]> {
     console.error("Error fetching embeddings from Jina:", err?.message);
     throw err;
   }
-}
+};
+
+export default { getJinaEmbeddings };
