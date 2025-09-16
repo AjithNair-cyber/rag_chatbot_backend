@@ -3,7 +3,6 @@ import jinaFunctions from "../functions/jinaFunctions";
 import qdrantFunctions from "../functions/qdrantFunctions";
 import geminiFunctions from "../functions/geminiFunctions";
 import helperFunctions from "../functions/helperFunctions";
-import CONFIGS from "../config/envConfigs";
 
 const getRAGResponse = async (req: Request, res: Response) => {
   try {
