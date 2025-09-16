@@ -18,7 +18,16 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Setting ENV Variables
+      - name: Set up Node.js version
+        uses: actions/setup-node@v3
+        with:
+          node-version: "22.x"
+
+      - name: npm install, build, and test
+        run: |
+          npm install
+          npm run build --if-present
+          npm run test --if-present
         env:
           PORT: ${{ secrets.PORT }}
           CNN_RSS_URL: ${{ secrets.CNN_RSS_URL }}
@@ -37,19 +46,6 @@ jobs:
           REDIS_DATABASE_PASSWORD: ${{ secrets.REDIS_DATABASE_PASSWORD }}
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           GEMINI_API_URL: ${{ secrets.GEMINI_API_URL }}
-        run: |
-          echo "Using API key: $NDTV_RSS_URL"
-
-      - name: Set up Node.js version
-        uses: actions/setup-node@v3
-        with:
-          node-version: "22.x"
-
-      - name: npm install, build, and test
-        run: |
-          npm install
-          npm run build --if-present
-          npm run test --if-present
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v4
