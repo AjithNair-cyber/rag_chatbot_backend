@@ -18,26 +18,6 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Load environment variables
-        run: |
-          echo "PORT=${{ secrets.PORT }}" >> $GITHUB_ENV
-          echo "CNN_RSS_URL=${{ secrets.CNN_RSS_URL }}" >> $GITHUB_ENV
-          echo "NDTV_RSS_URL=${{ secrets.NDTV_RSS_URL }}" >> $GITHUB_ENV
-          echo "JINA_API_KEY=${{ secrets.JINA_API_KEY }}" >> $GITHUB_ENV
-          echo "JINA_API_URL=${{ secrets.JINA_API_URL }}" >> $GITHUB_ENV
-          echo "JINA_API_MODEL=${{ secrets.JINA_API_MODEL }}" >> $GITHUB_ENV
-          echo "QDRANT_API_KEY=${{ secrets.QDRANT_API_KEY }}" >> $GITHUB_ENV
-          echo "QDRANT_API_URL=${{ secrets.QDRANT_API_URL }}" >> $GITHUB_ENV
-          echo "QDRANT_PORT=${{ secrets.QDRANT_PORT }}" >> $GITHUB_ENV
-          echo "QDRANT_DB_CLUSTER=${{ secrets.QDRANT_DB_CLUSTER }}" >> $GITHUB_ENV
-          echo "QDRANT_DB_NAME=${{ secrets.QDRANT_DB_NAME }}" >> $GITHUB_ENV
-          echo "REDIS_ENDPOINT=${{ secrets.REDIS_ENDPOINT }}" >> $GITHUB_ENV
-          echo "REDIS_DATABASE_NAME=${{ secrets.REDIS_DATABASE_NAME }}" >> $GITHUB_ENV
-          echo "REDIS_DATABASE_USERNAME=${{ secrets.REDIS_DATABASE_USERNAME }}" >> $GITHUB_ENV
-          echo "REDIS_DATABASE_PASSWORD=${{ secrets.REDIS_DATABASE_PASSWORD }}" >> $GITHUB_ENV
-          echo "GEMINI_API_KEY=${{ secrets.GEMINI_API_KEY }}" >> $GITHUB_ENV
-          echo "GEMINI_API_URL=${{ secrets.GEMINI_API_URL }}" >> $GITHUB_ENV
-
       - name: Set up Node.js version
         uses: actions/setup-node@v3
         with:
@@ -82,3 +62,21 @@ jobs:
           app-name: "rag-chatbot-backend"
           slot-name: "Production"
           package: .
+          app-settings: |
+            PORT=${{ secrets.PORT }}
+            CNN_RSS_URL=${{ secrets.CNN_RSS_URL }}
+            NDTV_RSS_URL=${{ secrets.NDTV_RSS_URL }}
+            JINA_API_KEY=${{ secrets.JINA_API_KEY }}
+            JINA_API_URL=${{ secrets.JINA_API_URL }}
+            JINA_API_MODEL=${{ secrets.JINA_API_MODEL }}
+            QDRANT_API_KEY=${{ secrets.QDRANT_API_KEY }}
+            QDRANT_API_URL=${{ secrets.QDRANT_API_URL }}
+            QDRANT_PORT=${{ secrets.QDRANT_PORT }}
+            QDRANT_DB_CLUSTER=${{ secrets.QDRANT_DB_CLUSTER }}
+            QDRANT_DB_NAME=${{ secrets.QDRANT_DB_NAME }}
+            REDIS_ENDPOINT=${{ secrets.REDIS_ENDPOINT }}
+            REDIS_DATABASE_NAME=${{ secrets.REDIS_DATABASE_NAME }}
+            REDIS_DATABASE_USERNAME=${{ secrets.REDIS_DATABASE_USERNAME }}
+            REDIS_DATABASE_PASSWORD=${{ secrets.REDIS_DATABASE_PASSWORD }}
+            GEMINI_API_KEY=${{ secrets.GEMINI_API_KEY }}
+            GEMINI_API_URL=${{ secrets.GEMINI_API_URL }}
