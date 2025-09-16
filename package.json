@@ -1,0 +1,43 @@
+{
+  "name": "rag_chatbot_backend",
+  "version": "1.0.0",
+  "description": "RAG-Powered Chatbot for News Websites",
+  "main": "index.js",
+  "scripts": {
+    "build": "tsc",
+    "start": "node dist/server.js",
+    "dev": "nodemon --watch src --ext ts,js --exec ts-node src/server.ts"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AjithNair-cyber/rag_chatbot_backend.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AjithNair-cyber/rag_chatbot_backend/issues"
+  },
+  "homepage": "https://github.com/AjithNair-cyber/rag_chatbot_backend#readme",
+  "dependencies": {
+    "@qdrant/js-client-rest": "^1.15.1",
+    "axios": "^1.12.2",
+    "cheerio": "^1.1.2",
+    "cors": "^2.8.5",
+    "dotenv": "^17.2.2",
+    "express": "^5.1.0",
+    "fs": "^0.0.1-security",
+    "node-cron": "^4.2.1",
+    "uuid": "^13.0.0"
+  },
+  "devDependencies": {
+    "@types/cors": "^2.8.19",
+    "@types/dotenv": "^8.2.3",
+    "@types/express": "^5.0.3",
+    "@types/node": "^24.4.0",
+    "@types/node-cron": "^3.0.11",
+    "nodemon": "^3.1.10",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.9.2"
+  }
+}
