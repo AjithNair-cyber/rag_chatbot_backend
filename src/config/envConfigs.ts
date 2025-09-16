@@ -22,6 +22,7 @@ const CONFIGS = {
   REDIS_DATABASE_PASSWORD: process.env.REDIS_DATABASE_PASSWORD || "",
   GEMINI_API_KEY: process.env.GEMINI_API_KEY || "",
   GEMINI_API_URL: process.env.GEMINI_API_URL || "",
+  UI_URL: process.env.UI_URL || "",
 };
 
 export default CONFIGS;
