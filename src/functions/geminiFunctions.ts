@@ -16,8 +16,7 @@ Your task is to answer the user's specific question as accurately as possible us
 
 Context Passages:
 Each passage contains a title, description, and a URL to the source article.
-If the information in the passage is insufficient to fully answer the user's query, you may go through the provided URL for more details and then answer.
-If a passage is referenced in your response, cite its title and include its URL as a hyperlink. Do not add Url and Titles to the answer, it has to seperately 
+If the information in the passage is insufficient to fully answer the user's query, you may go through the provided URL for more details and then answer.. Do not add Url and Titles to the answer, it has to seperately 
 shown in the sources field of the JSON response.
 
 Passages:

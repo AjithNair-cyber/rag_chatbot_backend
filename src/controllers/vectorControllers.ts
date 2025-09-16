@@ -3,11 +3,9 @@ import jinaFunctions from "../functions/jinaFunctions";
 import qdrantFunctions from "../functions/qdrantFunctions";
 import geminiFunctions from "../functions/geminiFunctions";
 import helperFunctions from "../functions/helperFunctions";
-import CONFIGS from "../config/envConfigs";
 
 const getRAGResponse = async (req: Request, res: Response) => {
   try {
-    console.log(CONFIGS);
     const userQuery: string = req.body.query;
     if (!userQuery) return res.status(400).json({ error: "Query is required" });
 
