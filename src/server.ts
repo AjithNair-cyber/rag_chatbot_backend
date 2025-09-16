@@ -4,7 +4,6 @@ import cron from "node-cron";
 
 // Start the server
 app.listen(CONFIGS.PORT, async () => {
-  console.log(CONFIGS);
   console.log(`Server running at http://localhost:${CONFIGS.PORT}`);
 });
 

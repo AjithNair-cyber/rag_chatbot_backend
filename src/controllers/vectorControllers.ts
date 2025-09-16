@@ -7,7 +7,6 @@ import CONFIGS from "../config/envConfigs";
 
 const getRAGResponse = async (req: Request, res: Response) => {
   try {
-    console.log(CONFIGS);
     const userQuery: string = req.body.query;
     if (!userQuery) return res.status(400).json({ error: "Query is required" });
 
