@@ -11,6 +11,8 @@ const app = express();
 app.use(corsMiddleware);
 app.use(express.json());
 app.use(expressRedisSession);
+// In your server.js or app.js file, before your session middleware
+app.set("trust proxy", 1); // Trust the first proxy (Azure's)
 // Routes
 app.use("/vectors", vectorRouter);
 app.use("/session", sessionRouter);
