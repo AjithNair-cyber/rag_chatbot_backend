@@ -8,7 +8,7 @@ import redisClient from "./setup/redisSetup";
 app.listen(CONFIGS.PORT, async () => {
   console.log(`Server running at http://localhost:${CONFIGS.PORT}`);
   await redisClient.connect();
-  console.log("Connected to Redis");
+  console.log("Connected to Redis", CONFIGS.ENVIRONMENT == "PROD");
 });
 
 // Runs at 12:00 AM and 12:00 PM every day
