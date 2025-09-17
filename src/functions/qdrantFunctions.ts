@@ -1,6 +1,6 @@
 import CONFIGS from "../config/envConfigs";
 import qdrant from "../setup/qdrantSetup";
-import { QdrantInsertPayload } from "../types/rss.types";
+import { QdrantInsertPayload } from "../types/types";
 
 // Function to upsert vectors into Qdrant
 const upsertVectors = async (points: QdrantInsertPayload[]) => {

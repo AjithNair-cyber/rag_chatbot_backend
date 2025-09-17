@@ -21,3 +21,10 @@ export type QueryResult = {
   answer: string;
   sources: Source[];
 };
+
+// Extend session type to include 'views'
+declare module "express-session" {
+  interface SessionData {
+    views?: number;
+  }
+}
