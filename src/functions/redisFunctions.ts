@@ -1,10 +1,12 @@
 import redisClient from "../setup/redisSetup";
+import { Source } from "../types/types";
 
 // Function to store redis Message
 const storeRedisMessage = async (
   query: string,
   sessionId: string,
-  type: string
+  type: string,
+  sources?: Source[]
 ) => {
   const timestamp = Date.now();
   const chatMessage = JSON.stringify({

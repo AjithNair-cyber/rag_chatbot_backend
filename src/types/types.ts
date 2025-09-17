@@ -12,7 +12,7 @@ export type QdrantInsertPayload = {
   payload: { title: string; description: string; link: string };
 };
 
-type Source = {
+export type Source = {
   title: string;
   url: string;
 };

@@ -4,7 +4,6 @@ import qdrantFunctions from "../functions/qdrantFunctions";
 import geminiFunctions from "../functions/geminiFunctions";
 import helperFunctions from "../functions/helperFunctions";
 import redisFunctions from "../functions/redisFunctions";
-import CONFIGS from "../config/envConfigs";
 
 const getRAGResponse = async (req: Request, res: Response) => {
   try {
@@ -29,9 +28,8 @@ const getRAGResponse = async (req: Request, res: Response) => {
     );
 
     // Call Gemini API
-    const geminiResponse = await geminiFunctions.generateGeminiResponse(
-      geminiPrompt
-    );
+    const geminiResponse =
+      await geminiFunctions.generateGeminiResponse(geminiPrompt);
 
     // Parse and clean Gemini response
     const parsedResponse = helperFunctions.parseAndCleanJSON(geminiResponse);
@@ -46,7 +44,8 @@ const getRAGResponse = async (req: Request, res: Response) => {
     await redisFunctions.storeRedisMessage(
       parsedResponse.answer,
       sessionId,
-      "bot"
+      "bot",
+      parsedResponse.sources
     );
 
     res.json(parsedResponse);
