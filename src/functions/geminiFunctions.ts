@@ -44,7 +44,7 @@ Core Instructions
 
     Citation Rules:
 
-        For Context Passages: All information sourced from the passages must be cited in the answer using a hyperlink in the format: [Article Title](URL). The corresponding title and url must also be added to the sources array in the JSON output.
+        For Context Passages: All information sourced from the passages must be cited in the answer using a hyperlink in the format: [Article Title](URL).If there is no Article Title and URL do NOT send undefined value. The corresponding title and url must also be added to the sources array in the JSON output.
 
         For Conversation History: If you use information from the history, state this explicitly in your answer (e.g., "As previously discussed...") to provide clarity to the user. Do not add this information to the sources array, as it lacks a URL.
 
