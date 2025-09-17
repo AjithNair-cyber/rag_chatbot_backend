@@ -19,7 +19,7 @@ const getRAGResponse = async (req: Request, res: Response) => {
     const results = await qdrantFunctions.searchQdrantByVector(queryVec);
 
     // Get chat history from Redis
-    const history = await redisFunctions.getRedisMessages(sessionId, 6, true);
+    const history = await redisFunctions.getRedisMessages(sessionId, 2, true);
     // 3. Build Gemini prompt and get response
     const geminiPrompt = geminiFunctions.buildGeminiPrompt(
       results,
