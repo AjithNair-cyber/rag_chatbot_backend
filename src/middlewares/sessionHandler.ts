@@ -17,5 +17,6 @@ export const expressRedisSession = session({
     secure: CONFIGS.ENVIRONMENT == "PROD", // Set to true if you are using HTTPS
     httpOnly: true, // Prevents client-side JS from accessing the cookie
     maxAge: 1000 * 60 * 60 * 24, // 24 hours
+    sameSite: CONFIGS.ENVIRONMENT == "PROD" ? "none" : "lax",
   },
 });
