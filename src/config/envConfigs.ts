@@ -24,6 +24,7 @@ const CONFIGS = {
   GEMINI_API_URL: process.env.GEMINI_API_URL || "",
   UI_URL: process.env.UI_URL || "",
   REDIS_SECRET: process.env.REDIS_SECRET || "",
+  ENVIRONMENT: process.env.ENVIRONMENT || "DEV",
 };
 
 export default CONFIGS;

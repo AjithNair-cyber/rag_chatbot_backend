@@ -14,7 +14,7 @@ export const expressRedisSession = session({
   saveUninitialized: true,
   // Cookie settings
   cookie: {
-    secure: false, // Set to true if you are using HTTPS
+    secure: CONFIGS.ENVIRONMENT == "PROD", // Set to true if you are using HTTPS
     httpOnly: true, // Prevents client-side JS from accessing the cookie
     maxAge: 1000 * 60 * 60 * 24, // 24 hours
   },
