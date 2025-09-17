@@ -8,7 +8,6 @@ import CONFIGS from "../config/envConfigs";
 
 const getRAGResponse = async (req: Request, res: Response) => {
   try {
-    console.log("ENV", CONFIGS.ENVIRONMENT == "PROD");
     const userQuery: string = req.body.query;
     const sessionId = req.session.id;
     if (!userQuery || !sessionId)
