@@ -1,4 +1,4 @@
-import { QueryResult } from "../types/rss.types";
+import { QueryResult } from "../types/types";
 
 const parseAndCleanJSON = (input: string): QueryResult | null => {
   try {

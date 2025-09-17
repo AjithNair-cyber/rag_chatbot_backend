@@ -1,4 +1,4 @@
-import { NewsItem } from "../types/rss.types";
+import { NewsItem } from "../types/types";
 import { v4 as uuidv4 } from "uuid";
 import jinaFunctions from "../functions/jinaFunctions";
 import qdrantFunctions from "../functions/qdrantFunctions";

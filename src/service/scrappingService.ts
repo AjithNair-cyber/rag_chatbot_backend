@@ -1,7 +1,7 @@
 import axios from "axios";
 import * as cheerio from "cheerio";
 import * as fs from "fs";
-import { NewsItem } from "../types/rss.types";
+import { NewsItem } from "../types/types";
 import CONFIGS from "../config/envConfigs";
 import vectorService from "./vectorService";
 

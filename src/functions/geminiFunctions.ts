@@ -1,7 +1,11 @@
 import axios from "axios";
 import CONFIGS from "../config/envConfigs";
 
-const buildGeminiPrompt = (passages: Array<any>, userQuery: string): string => {
+const buildGeminiPrompt = (
+  passages: Array<any>,
+  userQuery: string,
+  history: Array<any>
+): string => {
   let context = passages
     .map(
       (p, i) =>
@@ -17,7 +21,12 @@ Your task is to answer the user's specific question as accurately as possible us
 Context Passages:
 Each passage contains a title, description, and a URL to the source article.
 If the information in the passage is insufficient to fully answer the user's query, you may go through the provided URL for more details and then answer.. Do not add Url and Titles to the answer, it has to seperately 
-shown in the sources field of the JSON response.
+shown in the sources field of the JSON response. If there are multiple articles that provide relevant information, you may combine insights from them to formulate a comprehensive answer and display them as a list with spaces and linebreaks.
+Each URL should be after a line break and not a comma. There will also be a history of the previous user messages submitted so that you can answer in a more contextual manner. The context will contain both bot and user messages so make sense
+out which is which as it will contain a field called "user" or "bot" to indicate that. The history will be in order with the most recent message at the start of the list.
+
+History:
+${history}
 
 Passages:
 ${context}
