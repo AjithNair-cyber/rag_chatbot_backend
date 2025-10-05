@@ -11,7 +11,7 @@ const buildGeminiPrompt = (
       (p, i) =>
         `${i + 1}. Title: "${p.payload.title}"\n   Description: "${
           p.payload.description
-        }"\n   URL: ${p.payload.url}`
+        }"\n   URL: ${p.payload.link}`
     )
     .join("\n\n");
   return `
